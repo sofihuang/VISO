@@ -1,18 +1,10 @@
 
-/**
- * Clase que almacena la informacion del movimiento de una persona en un edificio
- * El movimiento de una se persona se caracterizará por el paso del pasillo de una planta origen
- * a la zona de espera de esa planta, para tomar el ascensor.
- * Una vez en la planta de destino, sale del ascensor a la zona de espera, y de alli al pasillo.
- * En ese momento se permutan las plantas origen y destino y se vuelve a iniciar el movimiento.
- * En todos los cambios de posicion se deja pasar el retraso indicado.
- * 
- * @author (J. Javier Gutierrez) 
- * @version (25-9-2017)
- */
+
 
 //import fundamentos.*;
-
+/**
+ * Representa la persona 
+ */
 public class Persona extends Thread
 {
 	// Atributos de la persona en movimiento por el edificio
@@ -26,9 +18,7 @@ public class Persona extends Thread
 	int estado=0;
 	int tiempo;
 
-	/**
-	 * Constructor al que se le suministran los valores de los atributos
-	 */
+	
 	public Persona(int plantaOrigen, int plantaDestino,int retraso,ColorFig color, Ascensor ascensor)
 	{
 		this.plantaOrigen=plantaOrigen;
@@ -39,62 +29,37 @@ public class Persona extends Thread
 		ascensor.insertaEnPasillo(this,plantaOrigen);
 	}
 
-	/**
-	 * Observador que devuelve la planta de origen
-	 * 
-	 * @return entero con el valor de la planta de origen
-	 */
+	
 	public int plantaOrigen ()
 	{
 		return plantaOrigen;
 	}
 
-	/**
-	 * Observador que devuelve la planta de destino
-	 * 
-	 * @return entero con el valor de la planta de destino
-	 */
+	
 	public int plantaDestino ()
 	{
 		return plantaDestino;
 	}
 
-	/**
-	 * Observador que devuelve el retraso en el cambio de posicion
-	 * 
-	 * @return entero con el valor del retraso
-	 */
+	
 	public int retraso ()
 	{
 		return retraso;
 	}
 
-	/**
-	 * Observador que devuelve el color que representa a la persona en el dibujo
-	 * 
-	 * @return ColorFig con el color de la personan
-	 */
+	
 	public ColorFig color ()
 	{
 		return color;
 	}
 
-	/**
-	 * Observador que devuelve el color que representa a la persona en el dibujo
-	 * 
-	 * @return ColorFig con el color de la personan
-	 */
+	
 	public Ascensor ascensor ()
 	{
 		return ascensor;
 	}
 
-	/**
-	 * Realiza el movimiento de la persona con la temporizacion adecuada entre cambios de posicion
-	 * y controlando la subida y bajada de la persona al ascensor en las plantas adecuadas y cuando 
-	 * el ascensor esta parado 
-	 * @throws InterruptedException 
-	 */
+	
 	private void camina () throws InterruptedException
 	{
 
